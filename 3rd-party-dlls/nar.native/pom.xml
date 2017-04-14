@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>test.work.bench</groupId>
+  <artifactId>nar.native</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>nar</packaging>
+  
+  <name>Nar Native Project</name>
+  
+  
+    <dependencies>
+       		 <dependency>
+            <groupId>org.scijava</groupId>
+            <artifactId>native-lib-loader</artifactId>
+            <version>2.1.4</version>
+        </dependency>
+    </dependencies>
+    
+    
+   <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.maven-nar</groupId>
+                <artifactId>nar-maven-plugin</artifactId>
+                <version>3.5.1</version>
+                <extensions>true</extensions>
+                <configuration>
+                 <runtime>static</runtime>
+					<architecture>x86</architecture>
+                	<msvc>
+		                <version>14.0</version>
+		              </msvc>
+                   <cpp>
+						<debug>true</debug>
+					</cpp>
+                    <libraries>
+                        <library>
+                            <type>jni</type>
+                            <narSystemPackage>nar.nativ.test</narSystemPackage>
+                        </library>
+                    </libraries>
+                    <linker>
+                    <name>msvc</name>
+						<libs>
+					      <lib>
+					        <name>TestDllProject</name>
+					        <type>shared</type>
+					        <directory>${project.basedir}\src\nar\resources\aol\x86-Windows-msvc\lib</directory>
+					      </lib>
+					    </libs>
+                    </linker>
+					<java>
+						<include>true</include>
+					</java>
+                </configuration>
+               
+           </plugin>
+        </plugins>
+    </build>
+
+</project>

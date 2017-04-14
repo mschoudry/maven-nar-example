@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>test.work.bench</groupId>
+  <artifactId>nar.client</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <name>Nar Client Application</name>
+  <description>Nar Client Application using Nar Java project</description>
+  
+  <dependencies>
+  	<dependency>
+        <groupId>test.work.bench</groupId>
+        <artifactId>nar.java</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+		  <groupId>org.codehaus.mojo</groupId>
+		  <artifactId>exec-maven-plugin</artifactId>
+		  <version>1.4.0</version>
+		  <configuration>
+		    <mainClass>nar.client.test.TestApplication</mainClass>
+		    <workingDirectory>${project.build.directory}</workingDirectory>
+		  </configuration>
+		</plugin>
+          <plugin>
+				<groupId>com.github.maven-nar</groupId>
+				<artifactId>nar-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<version>3.5.1</version>
+			</plugin>
+  	</plugins>
+  </build>
+  
+</project>
